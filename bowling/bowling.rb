@@ -1,10 +1,52 @@
 
+
+class Frame
+   attr_accessor :pin1
+   attr_accessor :pin2
+
+   def initialize(pin1, pin2)
+     @pin1 = pin1;
+     @pin2 = pin2;
+   end
+
+   def isStrike()
+     if @pin1==10 then 
+       return true
+     else 
+       return false
+     end
+   end
+
+
+   def isSpare()
+     if !isStrike() && pin1+pin2==10 then
+       return true
+     else
+       return false
+     end
+   end 
+
+
+   def isValid()
+     if (pin1<0 || pin2<0) then
+       return false
+     end    
+
+     if (pin1+pin2>10) then
+       return false
+     end
+     
+     return true
+   end  
+end
+
+
 class Game
   #frames is an array of arrays.
   attr :frames;
 
   def roll(pin1, pin2)
-    frame = [pin1, pin2]
+    frame = Frame.new(pin1, pin2)
     frames.push(frame);
   end
 
@@ -20,9 +62,7 @@ class Game
   def calcscore
     total = 0
     frames.each do |frame|
-      frame.each do |roll|
-        total+=roll
-      end
+      total+=frame.pin1 + frame.pin2
     end
     return total
   end
