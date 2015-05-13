@@ -32,12 +32,51 @@ class TestBowling < MiniTest::Test
 
 
   def test_real_spare_game
-
     playing = Game.new();
     roll_many(playing, 10, 5, 5);
     playing.rollBonusForSpare(5);
     score = playing.result();
     assert_equal(150, score);
+  end
+
+  def test_strike
+    playing = Game.new();
+    #score = 10+5+4 + 5+4 + 10+4+5 + 4+5
+    #score = 19 + 9 + 19 + 9
+    #score = 27 + 27
+    #score = 54
+    playing.roll(10,0);
+    playing.roll(5,4);
+    playing.roll(10,0);
+    playing.roll(4,5);
+    score = playing.result()
+    assert_equal(54, score)
+  end
+
+
+  def test_strike
+    playing = Game.new();
+    roll_many(playing,10,10,0);
+    playing.rollBonusForStrike(10,10)
+    score = playing.result()
+    assert_equal(300, score)
+  end
+
+  def test_mix_of_strikes_and_spares
+    playing = Game.new();
+    playing.roll(10,0);
+    playing.roll(5,5);
+    playing.roll(7,0);
+    playing.roll(6,4);
+    playing.roll(10,0);
+    playing.roll(5,5);
+    playing.roll(4,4);
+    playing.roll(10,0);
+    playing.roll(8,2);
+    playing.roll(10,0);
+    playing.rollBonusForStrike(5,5);
+    score = playing.result();
+    assert_equal(166, score);
   end
 
 end

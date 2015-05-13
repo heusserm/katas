@@ -69,6 +69,32 @@ class Frame
    end
 
 
+   def isBonusFrame()
+     return false
+   end
+
+   def getStrikeBonus(nextFrame, frameAfterThat)
+     bonus = 0
+     if nextFrame==nil
+       return 0;
+     end
+
+     if nextFrame.isBonusFrame()
+        return nextFrame.pin1 + nextFrame.pin2
+     end 
+
+     if (!nextFrame.isStrike())
+       return nextFrame.pin1 + nextFrame.pin2
+     else
+       if frameAfterThat!=nil
+         return 10+frameAfterThat.pin1
+       else
+         return 10;
+       end
+     end
+   end
+
+
    def getScore(nextFrame, frameAfterThat)
      if (!isValid) 
        return 0
@@ -77,9 +103,10 @@ class Frame
      score = pin1+pin2
      if isSpare() && nextFrame!=nil
        score+=nextFrame.pin1
+     elsif isStrike() && nextFrame!=nil
+       score+=getStrikeBonus(nextFrame, frameAfterThat);
      end
-
-     return score
+     return score;
    end
 
 end
@@ -90,6 +117,10 @@ class BonusFrame < Frame
   #only as a bonus
   def isValid()
     return false
+  end
+
+  def isBonusFrame()
+    return true
   end
 end
 
