@@ -37,8 +37,31 @@ class Frame
 
      return true
    end
+
+
+   def getScore(nextFrame, frameAfterThat)
+     if (!isValid) 
+       return 0
+     end
+
+     score = pin1+pin2
+     if isSpare() && nextFrame!=nil
+       score+=nextFrame.pin1
+     end
+
+     return score
+   end
+
 end
 
+
+class BonusFrame < Frame
+  #Bonus Frames do not count their roll toward total score
+  #only as a bonus
+  def isValid()
+    return false
+  end
+end
 
 
 class Game
@@ -49,6 +72,16 @@ class Game
     frame = Frame.new(pin1, pin2)
     frames.push(frame);
   end
+
+  def rollBonusForSpare(pin1)
+    frame = BonusFrame.new(pin1, 0)
+    frames.push(frame)
+  end
+
+  def rollBonusForStrike(pin1, pin2)
+    frame = BonusFrame.new(pin1, pin2)
+    frames.push(frame)
+  end 
 
   def initialize()
     @frames = Array.new();
@@ -61,8 +94,8 @@ class Game
 
   def calcscore
     total = 0
-    frames.each do |frame|
-      total+=frame.pin1 + frame.pin2
+    for i in 0..frames.length-1
+      total+=frames[i].getScore(frames[i+1], frames[i+2])
     end
     return total
   end
