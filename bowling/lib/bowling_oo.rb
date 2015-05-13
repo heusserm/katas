@@ -1,4 +1,34 @@
 
+
+#--------------------------------------------------------------------#
+#An Object-oriented implmentation of the bowling game kata           #
+# By Matthew Heusser - Matt@xndev.com                                #
+#                                                                    #
+# The Rules of the Kata:                                             #
+#   http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata      #
+#                                                                    #
+# An online score sheet for comparison:                              #
+#   http://www.bowlinggenius.com/                                    #
+#                                                                    # 
+# How to use the object:                                             #
+#                                                                    #
+# playing = Game.new();                                              #
+# playing.roll(1,1);                                                 #
+# playing.roll(1,1);                                                 #
+# ... seven more rolls go by, now the final one:                     #
+# playing.roll(1,1);                                                 #
+# score = playing.result();                                          #
+# puts "Score is " + score.to_s();                                   #
+#                                                                    #
+# Strikes are recored as .roll(10,0)                                 #
+#                                                                    #
+# If you get a spare on the final roll then to .rollForSpare(5)      #
+# where 5 is the score, or .rollForStrike(5,5)                       #
+#                                                                    #
+# If your last two rolls are strikes, it would be:                   #
+#   .rollForStrike(10,10)                                            # 
+#--------------------------------------------------------------------#
+#
 class Frame
    attr_accessor :pin1
    attr_accessor :pin2
