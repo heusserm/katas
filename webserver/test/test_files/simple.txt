@@ -1,0 +1,2 @@
+This is a very simple test.
+To tell if the software can read a ASCII file
