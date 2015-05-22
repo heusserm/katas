@@ -21,41 +21,56 @@ class TestWebserver < MiniTest::Test
 
   def test_get_200_header
     expected = "HTTP/1.1 200 OK\r\n"
-    expected+= "Content-Type: text/plain\r\n" 
+    expected+= "Content-Type: text/html\r\n" 
     expected+= "Content-Length: 5\r\n" 
     expected+= "Connection: close\r\n\r\n"
     server = Webserver.new(8082,"./test_files")
     assert_equal(expected, server.get_200_header("hello"))
   end
 
-  def test_get_url
+  def test_get_blank_url_redirects_to_index
+    inval = "GET HTTP/1.1"
+    expected = "index.html"
+    server = Webserver.new(8083,"./test_files")
+    assert_equal(expected, server.get_filename(inval))
+  end
+
+  def test_get_just_slash_url_redirects_to_index
+    inval = "GET / HTTP/1.1"
+    expected = "index.html"
+    server = Webserver.new(8084,"./test_files")
+    assert_equal(expected, server.get_filename(inval))
+  end
+
+  def test_get_filename
     inval = "GET /test HTTP/1.1"
     expected = "test"
-    server = Webserver.new(8083,"./test_files")
-    assert_equal(expected, server.get_url(inval))
+    server = Webserver.new(8085,"./test_files")
+    assert_equal(expected, server.get_filename(inval))
   end
 
   def test_get_url_with_html_and_slashes
     inval = "GET /test/somedir/file.htm HTTP/1.1"
     expected = "test/somedir/file.htm"
-    server = Webserver.new(8083,"./test_files")
-    assert_equal(expected, server.get_url(inval))
+    server = Webserver.new(8086,"./test_files")
+    assert_equal(expected, server.get_filename(inval))
   end    
 
   def test_get_web_formatted_non_file
-    server = Webserver.new(8084,"./test_files")
-    assert_equal(server.get_404_error, server.get_web_formatted_page("notafile"))
+    inval = "GET /notafile HTTP/1.1"
+    server = Webserver.new(8087,"./test_files")
+    assert_equal(server.get_404_error, server.get_web_formatted_page(inval))
   end
 
 
   def test_get_not_a_file
-    server = Webserver.new(8085,"./test_files")
+    server = Webserver.new(8088,"./test_files")
     getval = server.get_file("notafile")
     assert_equal(nil, getval)
   end
 
   def test_get_a_file
-    server = Webserver.new(8086,"./test_files")
+    server = Webserver.new(8089,"./test_files")
     actual_result = server.get_file("simple.txt")
 expected_result=<<EOF
 This is a very simple test.

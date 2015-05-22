@@ -12,7 +12,7 @@ You'll need to install minitest and ruby. Then just run this from the command li
 
 ruby webserver.rb
 
-That's it. It assumes port 8080 and serves files out of the ./test/test_files directory.
+That's it. It assumes port 8080 and serves files out of the ./test/test_files directory. Blank requests redirect to index.html.
 
 Make sure you don't have a webserver running already on port 8080. If you want a specific port, try:
 
@@ -41,11 +41,9 @@ gem install minitest
 
 This will serve ASCII text files out of the directory you specify, and return 200 OK GETS, along with text, or a 404 error message. That is all that is supported at this time. If you are worried about DDOS or hacking etc, well, run it behind a firewall and not in a DMZ.
 
-The software currently serves in serial, so multiple simultaneous users may experience dropped connections.
+I just modified the server to run in parellel with fork. Forking in Ruby feels ... different than it does in C. I'd be interested in learn better idioms for my code.
 
 ## TODO
-
-Run in parellel (forking or threads)
 
 Extract the message code headers to their own helper class
 
@@ -66,3 +64,4 @@ Add other newer standard supports
 
 Extend the example directories/files
 
+Handle just '/' to redirect to index.html
