@@ -52,6 +52,7 @@ Extract the message code headers to their own helper class
 Make the parameter handling templated, maybe write a helper class for that
 
 Add security features 
+* (Don't serve up directories, for one thing)
 
 Add support for other content-types
 
@@ -63,4 +64,5 @@ Support the entire HTTP 1.1 standard
 
 Add other newer standard supports
 
+Extend the example directories/files
 
