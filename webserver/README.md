@@ -1,4 +1,4 @@
-# Simple Webserver 
+# The Webserver Kata 
 
 I met Zed Shaw are Oredev in 2012, and he suggested I write a webserver.
 
