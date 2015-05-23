@@ -50,7 +50,6 @@ Extract the message code headers to their own helper class
 Make the parameter handling templated, maybe write a helper class for that
 
 Add security features 
-* (Don't serve up directories, for one thing)
 
 Add support for other content-types
 
@@ -94,3 +93,4 @@ Extract code inside do/loop to it's own function - integration test that
 
 13) Add to examples with files that reference files (CSS and js etc)
 
+14) Security - Sanatize inputs. Do not give access via ../../ for example
