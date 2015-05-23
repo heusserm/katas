@@ -64,4 +64,33 @@ Add other newer standard supports
 
 Extend the example directories/files
 
-Handle just '/' to redirect to index.html
+Extract code inside do/loop to it's own function - integration test that
+
+## TODONE - Requirements of the Kata (One way to do it)
+
+1) Create an object that takes a port and start directory
+
+2) Extract the object to a file; create a test file for it
+
+3) Create a driver file that news the class and .serves it
+
+4) Read from a file into a string (Return null for errors)
+
+5) Take HTTP Get with url and get filename
+
+6) Create function that ties 4&5 and handles exceptions
+
+7) Create 200 OK and 404 error headers
+
+8) tie results to print full header and text
+
+9) Create simple socket to get requests and put results
+
+10) Wrap #9 in a do loop
+
+11) Make #10 a forking server
+
+12) Handle '/' and '' urls to redirect to index.html
+
+13) Add to examples with files that reference files (CSS and js etc)
+
