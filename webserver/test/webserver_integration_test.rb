@@ -17,6 +17,7 @@ class TestWebserver < MiniTest::Test
   def teardown
     if @child_process!=nil
       Process.kill(0, @child_process)
+      @child_process = nil
     end
   end
 
