@@ -12,17 +12,21 @@ class Webserver
 
   def serve()
     loop do 
-      socket = @server.accept
-      fork do
-        request = socket.gets
-        STDERR.puts request
-        results = get_web_formatted_page(request)
-        socket.print results
-        socket.close 
-      end
+      serve_one()
     end
   end
 
+  def serve_one()
+    socket = @server.accept
+    fork do
+      request = socket.gets
+      STDERR.puts request
+      results = get_web_formatted_page(request)
+      socket.print results
+      socket.close
+    end
+    socket.close  
+  end
 
   def get_filename(getrequest)
     match_data = /\/(.*) HTTP/.match(getrequest)
