@@ -36,6 +36,7 @@ You'll also need the minitest gem. To install minitest:
 
 gem install minitest
 
+To run the test your OS will need curl as curl will need to be in a directory that runs automatically from the command line.
 
 ## features
 
@@ -45,11 +46,11 @@ I just modified the server to run in parellel with fork. Forking in Ruby feels .
 
 ## TODO
 
-Extract the message code headers to their own helper class
 
 Make the parameter handling templated, maybe write a helper class for that
 
 Add security features 
+* Add unit tests for ../../ and directories
 
 Add support for other content-types
 
@@ -63,7 +64,6 @@ Add other newer standard supports
 
 Extend the example directories/files
 
-Extract code inside do/loop to it's own function - integration test that
 
 ## TODONE - Requirements of the Kata (One way to do it)
 
@@ -94,3 +94,7 @@ Extract code inside do/loop to it's own function - integration test that
 13) Add to examples with files that reference files (CSS and js etc)
 
 14) Security - Sanatize inputs. Do not give access via ../../ for example
+
+15) Extract the message code headers to their own helper class
+
+16) Extract code inside do/loop to it's own function - integration test that
