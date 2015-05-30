@@ -46,7 +46,6 @@ I just modified the server to run in parellel with fork. Forking in Ruby feels .
 
 ## TODO
 
-
 Make the parameter handling templated, maybe write a helper class for that
 
 Add security features 
@@ -63,7 +62,6 @@ Support the entire HTTP 1.1 standard
 Add other newer standard supports
 
 Extend the example directories/files
-
 
 ## TODONE - Requirements of the Kata (One way to do it)
 
@@ -98,3 +96,5 @@ Extend the example directories/files
 15) Extract the message code headers to their own helper class
 
 16) Extract code inside do/loop to it's own function - integration test that
+
+17) Add unit tests for security
