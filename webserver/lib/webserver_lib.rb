@@ -92,7 +92,7 @@ class Webserver
     else
       result  = match_data.captures[0]
     end
-    result=result.downcase.gsub( /\.\./,"").gsub(" ", "").gsub(",","").gsub("'","")
+    result=result.gsub( /\.\./,"").gsub(" ", "").gsub(",","").gsub("'","")
     result=result.gsub(";", "").gsub(":","").gsub("<", "").gsub("?", "").gsub("!", "").gsub("^","")
     result=result.gsub("%", "").gsub("$","").gsub("$","").gsub(">","")
     return result
