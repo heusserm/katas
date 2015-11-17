@@ -1,0 +1,4 @@
+https://www.socialtext.net/data/workspaces/help-en/pages?q=page&accept=json,"page_uri":"https://www.socialtext.net/help-en/example_page_press_release",Y,contains example press release
+https://www.socialtext.net/data/workspaces/help-en/pages?q=page&accept=json,"page_uri":"https://www.socialtext.net/help-en/manipulating_data_on_the_spreadsheet",Y,contains manipulating data on the spreadsheet
+https://www.socialtext.net/data/workspaces/help-en/pages?q=page&accept=json,page_uri,Y,contains example press release
+https://www.socialtext.net/data/people?q=matthew,The person you are trying to view is not visible or does not exist.,N,security-locked page is secure
