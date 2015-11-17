@@ -40,3 +40,8 @@ ruby api_tester.rb sample_api_data.txt
 
 3) Integrate with an HTML output report generator, such as tap2html
 
+4) Allow basic authentication
+
+5) Allow other accept types
+
+6) Enable cookies/SSL
