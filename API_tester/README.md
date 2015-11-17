@@ -1,5 +1,7 @@
 # API Tester
 
+By Matthew Heusser - Matt.Heusser at gmail dot com
+
 This is a simple program that takes in a .csv delimited list of URLs to call and the expected result. Call it like this on a UNIX, Linux, or Mac system:
 
 ruby api_tester.rb <filename.csv>
@@ -32,8 +34,9 @@ ruby api_tester.rb sample_api_data.txt
 
 ## Possible future extension
 
-1) Allow API tester to loop through a directory of files
+1) Add code to escape and de-escape commas in test data - Done. Commas are turned into pipes. To match in your text file, convert your commas to pipes - the | character
 
-2) Integrate with an HTML output report generator, such as tap2html
+2) Allow API tester to loop through a directory of files
 
-3) Add code to escape and de-escape commas in test data 
+3) Integrate with an HTML output report generator, such as tap2html
+
