@@ -32,7 +32,6 @@ class CsvTester
     end
 
     def evaluate()
-      tests = CSV.read(@csvFilename)
       CSV.foreach(@csvFilename) do |row|
           f = row[0]
           expected = row[1]
