@@ -1,4 +1,21 @@
 
+#evalconversion.rb
+#By Excelon Development - Matt@xndev.com
+#
+#This program takes the following command line options:
+#
+# ruby evalConversion.rb (F_to_c_program.rb) (spreadsheet.csv)
+# 
+# If you want to code something other than a ruby program, you'll need to change the run_program function.
+# 
+# The CSV file should have only as many rows as it has actual data. If you export blank lines and don't
+# delete them, you'll get some funny errors.
+#
+# Output is in TAP format. Program error return codes are the number of failing tests, so you can call this and 
+# pass it to a TAP parser.
+# 
+#
+
 require 'csv'
 
 class CsvTester 
