@@ -1,0 +1,17 @@
+Fahrenheit to Celsius in Ruby
+By Excelon Development 2016
+For questions email matt@xndev.com
+
+Scope:
+
+We’re doing some training in Ruby, and either want to gauge the skill of the class with the implicit tools like text editors, the command line, and ruby confidence, or just want a morning warmup - while wanting to simulate a real programming exercise.
+
+To do that, you will create a simple program which takes in a single value from the command line, a Fahrenheit Temperature, convert it to a Celsius, and print it on the command line. Name the program "FToC<your_initials>.txt"
+
+To implement the program, please write a ruby method, ftoc, which takes a command line argument in Fahrenheit and converts it to Celsius, and returns that variable. The program’s main routine will call that function then print the result.
+
+This is the formula for such a conversion:
+
+C = (F-32) * 5 / 9
+ 
+If these requirements are unclear there are two hint files that the instructor can make available.

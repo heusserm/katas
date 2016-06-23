@@ -1,0 +1,2 @@
+
+Hint2: Ask the instructor for the file FtoCTemplate.rb. Just change the filename and fill it in with a correct formula.

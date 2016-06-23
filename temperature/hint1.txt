@@ -1,0 +1,3 @@
+hint1: 
+
+Your program may need to use the ARGV array, the puts function, return, and may need to convert strings to integers, and possibly back.
