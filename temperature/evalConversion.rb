@@ -5,24 +5,20 @@
 #This program takes the following command line options:
 #
 # ruby evalConversion.rb (F_to_c_program.rb) (spreadsheet.csv)
-# 
+#
 # If you want to code something other than a ruby program, you'll need to change the run_program function.
-# 
+#
 # The CSV file should have only as many rows as it has actual data. If you export blank lines and don't
 # delete them, you'll get some funny errors.
 #
-# Output is in TAP format. Program error return codes are the number of failing tests, so you can call this and 
+# Output is in TAP format. Program error return codes are the number of failing tests, so you can call this and
 # pass it to a TAP parser.
-# 
+#
 #
 
 require 'csv'
 
-class CsvTester 
-    attr_reader :count
-    attr_writer :csvFilename
-    attr_writer :rubyFilename
-    attr_reader :total_ok
+class CsvTester
 
     def initialize(rubyFilename, csvFilename)
       @csvFilename = csvFilename
@@ -40,11 +36,8 @@ class CsvTester
           output = output.strip
           is(output, expected, comment)
       end
-      if (@total_ok!=@count) 
-        return (@count-@total_ok)
-      else
-        return 0
-      end
+
+      return (@count-@total_ok)
     end
 
     def run_program(f)
@@ -55,16 +48,16 @@ class CsvTester
 
     def is(a, b, comment)
       @count+=1
-      output = ""
+      output = "ok #{@count.to_s()}"
+
       if a==b
-        output = "ok " + @count.to_s()
         @total_ok+=1
       else
-        output = "not ok " + @count.to_s()
+        output = "not " + output
       end
-      if comment!=nil
-        output+=" " + comment
-      end
+
+      output += " #{comment}" if comment
+
       puts output
     end
 end
