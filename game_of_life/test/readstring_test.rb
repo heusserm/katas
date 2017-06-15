@@ -60,4 +60,34 @@ EOF
       end
     end
   end
+
+
+  def test_bad_text_causes_error
+
+    twoxtwobad =<<EOF
+..
+A.
+EOF
+
+    playing = Game_of_life.new()
+    assert_raises RuntimeError do
+      playing.loadstring(twoxtwobad);
+    end
+  end
+
+ def test_not_griddy_causes_error
+
+     reallybad=<<EOF
+...
+....
+..
+.
+EOF
+    playing = Game_of_life.new()
+    assert_raises RuntimeError do
+      playing.loadstring(reallybad);
+    end
+  end
 end
+
+
