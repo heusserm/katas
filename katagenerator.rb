@@ -6,6 +6,7 @@ class KataGenerator
   attr :katafirstupper
   attr :libfile
 
+
   def initialize(kataname)
     @basefilename = kataname
     @libdir = "./"+@basefilename+"/lib"
