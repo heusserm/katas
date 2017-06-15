@@ -19,8 +19,16 @@ class TestGame_of_life_read_string < MiniTest::Test
 
    def test_getxy_uninitialized_throws_exception
      playing = Game_of_life.new()
-     
+     assert_raises RuntimeError do
+        playing.getxsize();
+     end 
+
+     assert_raises RuntimeError do
+        playing.getysize();
+     end    
    end
+
+
 
    def test_xy_getat_function
 
