@@ -41,6 +41,10 @@ class Game_of_life
   end
 
 
+  def get_surrounding_elementsxy(x,y)
+    return [];
+  end
+
   #--------------------------------------------------#
   # Public methods to make things easier             #
   #--------------------------------------------------#
