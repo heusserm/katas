@@ -1,8 +1,0 @@
-32,0
-212,100
-e,Please enter a valid number with up to 2 decimal places
--459.68,Number too low (lower than absolute zero)
-@,Please enter a valid number with up to 2 decimal places
-<null>,Please enter a valid number with up to 2 decimal places
--459.67,-273
-12.333,Entry limited to 2 decimal places; rounded to 12.33, the result is 
