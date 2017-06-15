@@ -8,6 +8,16 @@ class Game_Of_Life_View
       end
 
       def get_grid_as_string
-        return "";
+        result = "";
+          @game.grid.each { |row| 
+            row.each { |char|
+              result = result+char;
+            }
+            result = result + "\n";
+          }
+         
+        result = result.chomp()
+        
+        return result;
       end
 end
