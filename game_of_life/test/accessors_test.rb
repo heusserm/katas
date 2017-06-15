@@ -4,7 +4,36 @@ require 'minitest/autorun'
 
 class TestGame_of_life_read_string < MiniTest::Test
 
-   def test_xy_coords_function
+   
+
+ sevenxfour=<<EOF
+..**
+..*.
+..*.
+..*.
+..*.
+..*.
+....
+EOF
+
+   def test_getxsize
+     playing = Game_of_life.new()
+     playing.loadstring(sevenxfour);
+     assert_equal(4, playing.getxsize());
+   end
+
+   def test_getysize
+     playing = Game_of_life.new()
+     playing.loadstring(sevenxfour);
+     assert_equal(7, playing.getysize());
+   end
+
+   def test_getxy_uninitialized_throws_exception
+     playing = Game_of_life.new()
+     
+   end
+
+   def test_xy_getat_function
 
   sevenxfour=<<EOF
 ..**
