@@ -5,16 +5,12 @@ class Game_of_life
   attr_accessor :grid;
       
   def loadstring(gridasstring)
+    #remove trailing newline
+    gridasstring = gridasstring.chomp();
     array1 = gridasstring.split(/\n/);
-    indexA = 0;
-    indexB = 0;
     array1.each {|line|
-      indexB = 0; 
-      array2=line.split(//);
-        array2.each {|char|
-          @grid.push([indexB,char]);
-        }
-      indexA = indexA+1;
+      data_array2=line.split(//);
+      @grid.push(data_array2);
     }
   end
 
