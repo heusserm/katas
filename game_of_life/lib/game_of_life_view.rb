@@ -7,5 +7,7 @@ class Game_Of_Life_View
         @game = newgame;
       end
 
-
+      def get_grid_as_string
+        return "";
+      end
 end
