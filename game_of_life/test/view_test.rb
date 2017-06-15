@@ -22,7 +22,8 @@ class TestGame_of_life_view < MiniTest::Test
          playing = Game_of_life.new();
          playing.loadstring(twoxtwo);
          view = Game_Of_Life_View.new(playing);
-                           
+
+        
          assert_equal(twoxtwo, view.get_grid_as_string(), "Loaded and printed string should be identical");
        end
 
