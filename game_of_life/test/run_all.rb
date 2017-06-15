@@ -4,3 +4,8 @@ require_relative "readfile_test"
 require_relative "bad_size_test"
 require_relative "accessors_test"
 require_relative "view_test"
+
+#--------------------------------------------#
+# Unit Tests for my unit test helper classes #
+#--------------------------------------------#
+require_relative "sample_strings_test"
