@@ -4,27 +4,16 @@ require 'minitest/autorun'
 
 class TestGame_of_life_read_string < MiniTest::Test
 
-   
-
- sevenxfour=<<EOF
-..**
-..*.
-..*.
-..*.
-..*.
-..*.
-....
-EOF
 
    def test_getxsize
      playing = Game_of_life.new()
-     playing.loadstring(sevenxfour);
+     playing.loadstring(getsevenxfour());
      assert_equal(4, playing.getxsize());
    end
 
    def test_getysize
      playing = Game_of_life.new()
-     playing.loadstring(sevenxfour);
+     playing.loadstring(getsevenxfour());
      assert_equal(7, playing.getysize());
    end
 
@@ -35,15 +24,7 @@ EOF
 
    def test_xy_getat_function
 
-  sevenxfour=<<EOF
-..**
-..*.
-..*.
-..*.
-..*.
-..*.
-....
-EOF
+     sevenxfour = getsevenxfour();
      playing = Game_of_life.new()
      playing.loadstring(sevenxfour);
      #First Dimensional array is 2 
@@ -88,5 +69,18 @@ EOF
     assert_equal("*",val,"Yet the upper bound of the grid is fine");
   end
 
+   def getsevenxfour()
+   
+  sevenxfour=<<EOF
+..**
+..*.
+..*.
+..*.
+..*.
+..*.
+....
+EOF
+   return sevenxfour;
+   end
 end
 
