@@ -18,8 +18,17 @@ class TestGame_of_life < MiniTest::Test
 EOF
      playing = Game_of_life.new()
      playing.loadstring(twoxtwoblank);
-     assert(playing.grid.kind_of?(Array),"Loadstring creates a array"); 
-
+     assert(playing.grid.length()==2,"grid is an array with two elements");
+     playing.grid.each { | y |
+        y.each { | x | 
+          numX=numX+1;
+        }
+       }
+     playing.grid.each { | y |
+         numrow = 0;
+         assert(y.length()==2,"Length of Y at " + numrow.to_s() + " is two");
+         numrow=numrow+1;
+     }
    threexthreeoneinthemiddle=<<EOF
    ...
    .*.
