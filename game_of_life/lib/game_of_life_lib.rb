@@ -53,12 +53,14 @@ class Game_of_life
     end
   end
 
-  def getxsize()
-    return 0;
+  def getysize()
+    check_grid_size();
+    return grid.length();
   end
 
-  def getysize()
-    return 0;
+  def getxsize()
+    check_grid_size();
+    return grid[0].length();
   end
 
   #--------------------------------------------------#
