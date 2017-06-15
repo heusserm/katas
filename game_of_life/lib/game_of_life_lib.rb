@@ -3,7 +3,16 @@
 class Game_of_life
 
   attr_accessor :grid;
-      
+
+  #--------------------------------------------------#
+  # Core Methods                                     #
+  #--------------------------------------------------#  
+  
+
+  def initialize()
+    @grid = Array.new(){Array.new()};
+  end
+
   def loadstring(gridasstring)
     #remove trailing newline
     gridasstring = gridasstring.chomp();
@@ -22,6 +31,39 @@ class Game_of_life
   end
 
 
+  def loadfile(filename)
+    file = File.open(filename);
+    contents = file.read;
+    loadstring(contents);
+
+    rescue Errno::ENOENT => ex
+      raise "Something went wrong trying to read file " + filename + " from disk.";
+  end
+
+
+  #--------------------------------------------------#
+  # Public methods to make things easier             #
+  #--------------------------------------------------#
+
+  def getatxy(x,y)
+    if x<0 or y<0 or y>@grid.length()-1 or x>@grid[y].length()
+      raise "("+x.to_s()+","+y.to_s()+") exceeds the size of grid.";
+    else  
+      return @grid[y][x];
+    end
+  end
+
+  def getxsize()
+    return 0;
+  end
+
+  def getysize()
+    return 0;
+  end
+
+  #--------------------------------------------------#
+  # Helper Methods                                   #
+  #--------------------------------------------------#
   def check_grid_size
     if grid.length()<1 
       raise "Grid must have at least one line";
@@ -40,26 +82,6 @@ class Game_of_life
 
   end
 
-  def loadfile(filename)
-    file = File.open(filename);
-    contents = file.read;
-    loadstring(contents);
-
-    rescue Errno::ENOENT => ex
-      raise "Something went wrong trying to read file " + filename + " from disk.";
-  end
-
-  def initialize()
-    @grid = Array.new(){Array.new()};
-  end
-
-  def getatxy(x,y)
-    if x<0 or y<0 or y>@grid.length()-1 or x>@grid[y].length()
-      raise "("+x.to_s()+","+y.to_s()+") exceeds the size of grid.";
-    else  
-      return @grid[y][x];
-    end
-  end
   
 end
 
