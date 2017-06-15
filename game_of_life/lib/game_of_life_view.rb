@@ -1,9 +1,10 @@
 
-class Gamd_Of_Life_View
+class Game_Of_Life_View
 
       attr_accessor :game
 
       def initialize(newgame)
+        @game = newgame;
       end
 
 
