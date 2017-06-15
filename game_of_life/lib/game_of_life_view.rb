@@ -21,7 +21,7 @@ class Game_Of_Life_View
         return result;
       end
 
-      def show
+      def display
         result = get_grid_as_string
         print result;
       end
