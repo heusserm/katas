@@ -42,7 +42,16 @@ class Game_of_life
 
 
   def get_surrounding_elementsxy(x,y)
-    return [];
+    results = [];
+    results.push((x-1).to_s()+","+(y-1).to_s());
+    results.push(x.to_s()+","+(y-1).to_s());
+    results.push((x+1).to_s()+","+(y-1).to_s());
+    results.push((x-1).to_s()+","+y.to_s());
+    results.push((x+1).to_s()+","+y.to_s());
+    results.push((x-1).to_s()+","+(y+1).to_s());
+    results.push(x.to_s()+","+(y+1).to_s());
+    results.push((x+1).to_s()+","+(y+1).to_s());
+    return results;
   end
 
   #--------------------------------------------------#
