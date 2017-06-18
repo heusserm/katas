@@ -55,6 +55,13 @@ class Game_of_life
     return results;
   end
 
+
+  def nextgen
+    playing = Game_of_life.new()
+    return playing;
+  end
+
+
   #--------------------------------------------------#
   # Public methods to make things easier             #
   #--------------------------------------------------#
@@ -77,7 +84,13 @@ class Game_of_life
     return grid[0].length();
   end
 
-
+  def is_alivexy(x,y)
+    if getatxy(x,y)=="*"
+      return true;
+    else
+      return false;
+    end
+  end
 
   #--------------------------------------------------#
   # Helper Methods                                   #
@@ -112,7 +125,19 @@ class Game_of_life
 
   end
 
-  
+  def countlivesurrounding(x,y)
+    total = 0;
+    neighbors = get_surrounding_elementsxy(x,y);
+    neighbors.each { |neighbor|
+      xy = neighbor.split(",");
+      if getatxy(xy[0].to_i(),xy[1].to_i())=="*"
+        total=total+1;
+      end
+    }
+    return total; 
+  end
+
+
 end
 
 

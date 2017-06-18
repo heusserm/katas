@@ -37,7 +37,27 @@ class TestGame_of_life_surrounding_elements < MiniTest::Test
     assert_equal(true,playing.isvalidsquare(2,2),"Bottom right is valid");
   end
 
+  def test_countlivesurrounding_none
+    playing = Game_of_life.new()
+    assert(playing!=nil,"Created object")
+    playing.loadstring(Sample_Strings.threexthreemiddle());
+    assert_equal(0,playing.countlivesurrounding(1,1));
+  end
 
+  def test_countlivesurrounding_one
+    playing = Game_of_life.new()
+    assert(playing!=nil,"Created object")
+    playing.loadstring(Sample_Strings.threexthreemiddle());
+    assert_equal(1,playing.countlivesurrounding(0,0));
+  end 
+
+  def test_countlivesurrounding_two
+    playing = Game_of_life.new()
+    assert(playing!=nil,"Created object")
+    playing.loadstring(Sample_Strings.fivexfiveonesurvivor());
+    assert_equal(2,playing.countlivesurrounding(2,1));
+  end 
+
+ 
 
 end
-

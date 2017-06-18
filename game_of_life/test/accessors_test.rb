@@ -29,6 +29,19 @@ class TestGame_of_life_read_string < MiniTest::Test
    end
 
 
+   def test_is_alive_true
+     playing = Game_of_life.new()
+     playing.loadstring(getsevenxfour());
+     assert_equal(true, playing.is_alivexy(2,1));
+   end
+
+   def test_is_alive_false
+     playing = Game_of_life.new()
+     playing.loadstring(getsevenxfour());
+     assert_equal(false, playing.is_alivexy(0,0));
+   end
+
+
 
    def test_xy_getat_function
 
