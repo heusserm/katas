@@ -105,7 +105,7 @@ class Game_of_life
   end
 
   def setatxy(value,x,y)
-    if x<0 or y<0 or y>@grid.length()-1 or x>@grid[y].length()
+    if (!isvalidsquare(x,y))
       raise "("+x.to_s()+","+y.to_s()+") exceeds the size of grid.";
     else
       if (value==nil or (!(value.kind_of?String)) or (value!="*" and value!="."))

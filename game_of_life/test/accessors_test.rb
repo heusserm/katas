@@ -44,7 +44,6 @@ class TestGame_of_life_read_string < MiniTest::Test
 
 
    def test_xy_getat_function
-
      sevenxfour = getsevenxfour();
      playing = Game_of_life.new()
      playing.loadstring(sevenxfour);
@@ -53,7 +52,6 @@ class TestGame_of_life_read_string < MiniTest::Test
      assert_equal("*", playing.getatxy(2,0),"two x, zero y is star");
      assert_equal("*", playing.getatxy(3,0),"three x, zero y is star");
      assert_equal(".", playing.getatxy(0,3),"zero x, three y is dot");
-    
   end
 
   def test_setxy_throw_execeptions
