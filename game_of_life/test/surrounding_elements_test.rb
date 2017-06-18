@@ -23,6 +23,21 @@ class TestGame_of_life_surrounding_elements < MiniTest::Test
       assert_equal("2,2",results[7],"Eigth surrounding square is 2,2");
   end
 
+  def test_valid_square
+    playing = Game_of_life.new()
+    assert(playing!=nil,"Created object")
+    playing.loadstring(Sample_Strings.threexthreemiddle());
+    assert_equal(false,playing.isvalidsquare(-1,0),"Out of bounds too far left returns false");
+    assert_equal(false,playing.isvalidsquare(-1,-1),"Out of bounds above upper left returns false");
+    assert_equal(false,playing.isvalidsquare(0,-1),"Out of bounds too far left returns false");
+    assert_equal(false,playing.isvalidsquare(3,0),"Out of bounds too wide returns false"); 
+    assert_equal(false,playing.isvalidsquare(1,3),"Out of bounds too deep returns false");
+    assert_equal(true,playing.isvalidsquare(0,0),"Top left is valid");
+    assert_equal(true,playing.isvalidsquare(1,1),"Middle is valid");
+    assert_equal(true,playing.isvalidsquare(2,2),"Bottom right is valid");
+  end
+
+
 
 end
 

@@ -43,14 +43,15 @@ class Game_of_life
 
   def get_surrounding_elementsxy(x,y)
     results = [];
-    results.push((x-1).to_s()+","+(y-1).to_s());
-    results.push(x.to_s()+","+(y-1).to_s());
-    results.push((x+1).to_s()+","+(y-1).to_s());
-    results.push((x-1).to_s()+","+y.to_s());
-    results.push((x+1).to_s()+","+y.to_s());
-    results.push((x-1).to_s()+","+(y+1).to_s());
-    results.push(x.to_s()+","+(y+1).to_s());
-    results.push((x+1).to_s()+","+(y+1).to_s());
+
+    temparray = [[x-1,y-1],[x,y-1],[x+1,y-1],[x-1,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]];
+
+    temparray.each { |set| 
+      if isvalidsquare(set[0],set[1]) then
+        results.push(set[0].to_s()+","+set[1].to_s());
+      end
+    }
+    
     return results;
   end
 
@@ -76,9 +77,23 @@ class Game_of_life
     return grid[0].length();
   end
 
+
+
   #--------------------------------------------------#
   # Helper Methods                                   #
   #--------------------------------------------------#
+  def isvalidsquare(x,y)
+    if (x<0 or y<0) 
+       return false;
+    end
+
+    if (x>=getxsize() or y>=getysize())
+        return false;
+    end
+
+    return true;
+  end
+
   def check_grid_size
     if grid.length()<1 
       raise "Grid must have at least one line";
