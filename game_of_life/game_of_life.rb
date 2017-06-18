@@ -8,9 +8,17 @@ puts "Conway's Game Of Life Spike\nBy Matthew Heusser Matt@xndev.com\nToday this
 puts "-------------------------------------------------------\n\n"
 
 game = Game_of_life.new()
-game.loadfile('./sample_starting_files/5x5.txt');
+game.loadfile('./sample_starting_files/10x10.txt');
+
 
 view = Game_Of_Life_View.new(game);
-view.display();
 
-puts "\n\n\n";
+for i in 0..4
+
+  view.display();
+  puts "\n\n\n";
+  view =  Game_Of_Life_View.new(game.nextgen);
+  sleep(1);
+end
+
+
