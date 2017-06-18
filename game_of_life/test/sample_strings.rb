@@ -35,7 +35,7 @@ EOF
     end
 
 
-#element 1,1 is special here in all of these cases
+#element 2,1 is special here in all of these cases
     def self.fivexfiveonesurvivor
       val=<<EOF
 ..*..

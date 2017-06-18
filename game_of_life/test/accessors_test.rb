@@ -56,6 +56,46 @@ class TestGame_of_life_read_string < MiniTest::Test
     
   end
 
+  def test_setxy_throw_execeptions
+    sevenxfour = getsevenxfour();
+    playing = Game_of_life.new()
+    assert_raises RuntimeError do
+        playing.setatxy("*", -1,0);
+    end
+
+    assert_raises RuntimeError do
+      playing.setatxy(".",10,1);
+    end
+       
+    assert_raises RuntimeError do
+      playing.setatxy(".",1,10);
+    end
+
+    assert_raises RuntimeError do
+      playing.setatxy(".",1,-1);
+    end
+
+    assert_raises RuntimeError do
+      playing.setatxy("h",1,2);
+    end
+  end
+  
+
+  def test_set_setatxy
+     sevenxfour = getsevenxfour();
+     playing = Game_of_life.new()
+     playing.loadstring(sevenxfour);
+     playing.setatxy("*", 0,0);
+     playing.setatxy(".", 2,0);
+     playing.setatxy(".", 3,0);
+     playing.setatxy("*", 0,3);
+     assert_equal("*", playing.getatxy(0,0),"zerozero coord is NOW a star");
+     assert_equal(".", playing.getatxy(2,0),"two x, zero y is NOW a dot");
+     assert_equal(".", playing.getatxy(3,0),"three x, zero y NOW a dot");
+     assert_equal("*", playing.getatxy(0,3),"zero x, three y is NOW a star");
+  end
+
+
    def test_toobig
 
    threexthree=<<EOF

@@ -56,10 +56,22 @@ class Game_of_life
   end
 
 
-  def nextgen
-    playing = Game_of_life.new()
-    return playing;
-  end
+  #def nextgen
+  #  playing = Game_of_life.new();
+  #  playing.grid = @grid.dup;
+  #  x = 0;
+  #  y = 0;
+  #  grid.each { |row|
+  #  
+  #    y.each { |col|
+  #      surroundvals = grid.countlivesurrounding(x,y);
+  #      if        
+  #      x=x+1
+  #    }
+  #    y=y+1
+  #  }
+  #  return playing;
+  #end
 
 
   #--------------------------------------------------#
@@ -89,6 +101,18 @@ class Game_of_life
       return true;
     else
       return false;
+    end
+  end
+
+  def setatxy(value,x,y)
+    if x<0 or y<0 or y>@grid.length()-1 or x>@grid[y].length()
+      raise "("+x.to_s()+","+y.to_s()+") exceeds the size of grid.";
+    else
+      if (value==nil or (!(value.kind_of?String)) or (value!="*" and value!="."))
+        raise "Value to set unclear";
+      else
+        grid[y][x]=value;
+      end
     end
   end
 
