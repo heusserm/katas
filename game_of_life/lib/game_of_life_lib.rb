@@ -56,22 +56,41 @@ class Game_of_life
   end
 
 
-  #def nextgen
-  #  playing = Game_of_life.new();
-  #  playing.grid = @grid.dup;
-  #  x = 0;
-  #  y = 0;
-  #  grid.each { |row|
-  #  
-  #    y.each { |col|
-  #      surroundvals = grid.countlivesurrounding(x,y);
-  #      if        
-  #      x=x+1
-  #    }
-  #    y=y+1
-  #  }
-  #  return playing;
-  #end
+  def nextgen
+    playing = Game_of_life.new();
+    playing.grid = @grid.dup;
+    x = 0;
+    y = 0;
+    grid.each { |row|
+    
+      row.each { |col|
+        
+        surroundvals = self.countlivesurrounding(x,y);
+        if surroundvals<2
+          playing.setatxy(".",x,y);
+        end
+        
+        if (surroundvals==2 and playing.is_alivexy(x,y))
+          playing.setatxy("*",x,y) 
+        else
+          playing.setatxy(".",x,y)
+        end
+
+        if surroundvals==3 
+          playing.setatxy("*",x,y)
+        end
+
+        if surroundvals>=4
+          playing.setatxy(".",x,y)
+        end
+
+        x=x+1
+      }
+      x=0
+      y=y+1
+    }
+    return playing;
+  end
 
 
   #--------------------------------------------------#
@@ -154,7 +173,7 @@ class Game_of_life
     neighbors = get_surrounding_elementsxy(x,y);
     neighbors.each { |neighbor|
       xy = neighbor.split(",");
-      if is_alive(xy[0].to_i(),xy[1].to_i())
+      if is_alivexy(xy[0].to_i(),xy[1].to_i())
         total=total+1;
       end
     }
