@@ -37,6 +37,10 @@ class TestGame_of_life < MiniTest::Test
 
   def test_rules
     rule_is_implemented(Sample_Strings.fivexfiveonesurvivor(), Sample_Strings.fivexfiveonesurvivorroundtwo());
+    rule_is_implemented(Sample_Strings.fivexfiveonesurvivorthreearound(),  Sample_Strings.fivexfiveonesurvivorthreearoundroundtwo());
+    rule_is_implemented(Sample_Strings.fivexfivetoomanyaround(), Sample_Strings.fivexfivetoomanyaroundroundtwo());
+    rule_is_implemented(Sample_Strings.fivexfivespontaneousgeneration(), Sample_Strings.fivexfivespontaneousgenerationroundtwo());
+
   end
 
 
