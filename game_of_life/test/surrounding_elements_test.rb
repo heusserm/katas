@@ -58,6 +58,6 @@ class TestGame_of_life_surrounding_elements < MiniTest::Test
     assert_equal(2,playing.countlivesurrounding(2,1));
   end 
 
- 
+
 
 end

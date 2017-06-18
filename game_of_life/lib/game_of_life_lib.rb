@@ -1,4 +1,4 @@
-
+require_relative '../lib/game_of_life_view.rb'
 
 class Game_of_life
 
@@ -58,20 +58,28 @@ class Game_of_life
 
   def nextgen
     playing = Game_of_life.new();
-    playing.grid = @grid.dup;
+
+    #TODO: Remove deep depenceny into view class
+    #By otherwise deepcloning grid
+    view = Game_Of_Life_View.new(self);
+    representationasstring = view.get_grid_as_string();
+    playing.loadstring(representationasstring);
+
     x = 0;
     y = 0;
     grid.each { |row|
-    
+      
       row.each { |col|
         
         surroundvals = self.countlivesurrounding(x,y);
+         
         if surroundvals<2
           playing.setatxy(".",x,y);
         end
-        
-        if (surroundvals==2 and playing.is_alivexy(x,y))
-          playing.setatxy("*",x,y) 
+       
+       
+        if (surroundvals==2 and is_alivexy(x,y))
+            playing.setatxy("*",x,y) 
         else
           playing.setatxy(".",x,y)
         end
