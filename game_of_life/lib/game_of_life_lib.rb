@@ -130,7 +130,7 @@ class Game_of_life
     neighbors = get_surrounding_elementsxy(x,y);
     neighbors.each { |neighbor|
       xy = neighbor.split(",");
-      if getatxy(xy[0].to_i(),xy[1].to_i())=="*"
+      if is_alive(xy[0].to_i(),xy[1].to_i())
         total=total+1;
       end
     }
