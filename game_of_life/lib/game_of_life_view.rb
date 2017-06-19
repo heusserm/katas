@@ -11,8 +11,8 @@ class Game_Of_Life_View
         @game = newgame
       end
       
-      def get_grid_as_string
-        result = "";
+      def get_grid_as_string()
+          result = "";
           @game.grid.each { |row| 
             row.each { |char|
               result = result+char;
