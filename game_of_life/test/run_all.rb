@@ -4,6 +4,8 @@ require_relative "readfile_test"
 require_relative "bad_size_test"
 require_relative "accessors_test"
 require_relative "view_test"
+require_relative "playgame_test.rb"
+
 
 #--------------------------------------------#
 # Unit Tests for my unit test helper classes #

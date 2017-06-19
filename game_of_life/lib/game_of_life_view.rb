@@ -6,7 +6,11 @@ class Game_Of_Life_View
       def initialize(newgame)
         @game = newgame;
       end
-
+      
+      def assign_game(newgame)
+        @game = newgame
+      end
+      
       def get_grid_as_string
         result = "";
           @game.grid.each { |row| 
@@ -22,7 +26,7 @@ class Game_Of_Life_View
       end
 
       def display
-        result = get_grid_as_string
+        result = get_grid_as_string+"\n\n\n";
         print result;
       end
 end

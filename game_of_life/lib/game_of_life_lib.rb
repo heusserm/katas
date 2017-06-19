@@ -100,18 +100,25 @@ class Game_of_life
     return playing;
   end
 
-  def play_full_game(view, cursor,numruns)
+  def play_full_game(view, cursor,numruns, printround, secondstosleep)
+    #TODO: printround if statement generates untested code
+    #      Think about how to extract/reformat/etc
     displayme = self;
+    cursorplus = 2;
+    if printround
+      cursorplus = 4;
+    end 
     #Would you like to play a game?
     for i in 0..(numruns.to_i()-1)
-      puts " Round: " + (i+1).to_s() + "\n\n";
+      if printround 
+         puts " Round: " + (i+1).to_s() + "\n\n";
+      end 
       view.display();
-      puts "\n\n\n";
       if (i<numruns.to_i()-1)
         displayme = displayme.nextgen();
-        view = Game_Of_Life_View.new(displayme);
-        sleep(1);
-        cursor.moveup(displayme.getysize()+4);
+        view.assign_game(displayme);
+        sleep(secondstosleep);
+        cursor.moveup(displayme.getysize()+cursorplus);
       end
     end
   end
