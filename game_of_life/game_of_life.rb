@@ -23,18 +23,7 @@ game.loadfile(filename);
 view = Game_Of_Life_View.new(game);
 cursor = Cursor_Wrap.new();
 
-#Would you like to play a game?
-for i in 0..(numruns.to_i()-1)
-  puts " Round: " + (i+1).to_s() + "\n\n";
-  view.display();
-  puts "\n\n\n";
-  if (i<numruns.to_i()-1)
-    game = game.nextgen();
-    view = Game_Of_Life_View.new(game);
-    sleep(1);
-    cursor.moveup(game.getysize()+4);
-  end
-end
+game.play_full_game(view, cursor,numruns);
 
 
 

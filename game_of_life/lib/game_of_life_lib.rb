@@ -100,6 +100,23 @@ class Game_of_life
     return playing;
   end
 
+  def play_full_game(view, cursor,numruns)
+    displayme = self;
+    #Would you like to play a game?
+    for i in 0..(numruns.to_i()-1)
+      puts " Round: " + (i+1).to_s() + "\n\n";
+      view.display();
+      puts "\n\n\n";
+      if (i<numruns.to_i()-1)
+        displayme = displayme.nextgen();
+        view = Game_Of_Life_View.new(displayme);
+        sleep(1);
+        cursor.moveup(displayme.getysize()+4);
+      end
+    end
+  end
+
+
 
   #--------------------------------------------------#
   # Public methods to make things easier             #
