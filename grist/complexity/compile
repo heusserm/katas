@@ -1,0 +1,3 @@
+gcc $1
+chmod a+x a.out
+./a.out
