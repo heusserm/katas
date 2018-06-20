@@ -3,9 +3,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-void strupp(char* begin) {
-  while ( ( *begin = toupper(*begin) )  ) begin++;
-}
 
 /* Method get_month inspired by:
    https://www.cqse.eu/en/blog/mccabe-cyclomatic-complexity/
