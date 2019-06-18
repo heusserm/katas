@@ -31,7 +31,7 @@ f.each_line { |line|
     highest = current_diff;
     best_day = current_day;
     best_low_temp = current_low_temp;
-    best_high_tep = current_high_temp;
+    best_high_temp = current_high_temp;
   end
 }
 
