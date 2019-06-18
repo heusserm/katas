@@ -25,11 +25,11 @@ puts result.to_s() + "\n";
 #Two ways I could do this
 #Is either transform the middle number into a / or + and interpolate it
 #OR switch or brute force
-#Trying brute force first because YAGNI
+#This is a interpolated version
 
-#Also trying non-TDD first 
-#And not-handling exceptions first
-#So that gives me 4 different ways to do the kata
+#Also trying non-TDD early
+#And not-handling exceptions yet
+#So that gives me more ways to do the kata
 #Plus from the command-line, from file etc
 
 
