@@ -8,24 +8,24 @@ numloop = ARGV[0].to_i();
  numMS = 10;
 
  if (i % 20).between?(0,4)
-    numMS = rand(20);
+    numMS = rand(20)+rand(20)+10;
  end
 
- if (i % 20).between?(5,16)
-     numMS = rand(100);
+ if (i % 20).between?(5,17)
+     numMS = rand(80)+20;
  end
 
- if (i % 20)==17
-   numMS = rand(25)+75;
- end
+ #if (i % 20)==17
+ #  numMS = rand(30)+60;
+ #end
 
  if (i % 20)==18
-   numMS = rand(100)+40;
+   numMS = rand(40)+90;
  end
 
 
  if (i % 20)==19
-   numMS = rand(20)+120; 
+   numMS = rand(10)+rand(10)+120; 
  end
 
  puts numMS.to_s();
