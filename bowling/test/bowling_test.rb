@@ -17,6 +17,15 @@ class TestBowling < MiniTest::Test
     assert_equal(20, score)
   end
 
+  def test_rolling_twos
+    playing = Game.new();
+    roll_many(playing, 10, 2, 2);
+    score = playing.result()
+    assert_equal(40, score)
+  end
+
+
+
   def test_spare
     playing = Game.new();
     #Score = 5+5+(A bonus of 4) + 4+4 + 5+4
