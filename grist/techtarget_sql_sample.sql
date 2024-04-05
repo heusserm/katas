@@ -22,7 +22,7 @@ WHERE EmployeeID = 387;
 
 #Name change; update
 UPDATE Employees
-SET Lastname = “Smith”
+SET Lastname = "Smith"
 WHERE EmployeeID = 387;
 
 
