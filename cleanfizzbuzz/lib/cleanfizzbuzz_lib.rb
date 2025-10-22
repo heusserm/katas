@@ -6,7 +6,7 @@ class Cleanfizzbuzz
 
   end
 
-  def getFizzBuzzForOneNumber(n)    
+  def getFizzBuzzForN(n)    
     name = ""
     if (n % 3 == 0)
       name = "fizz"
@@ -26,7 +26,7 @@ class Cleanfizzbuzz
   def getFizzBuzzForAGroupOneTo(max)
     result = ""
     for n in 1..max do
-      result = result+getFizzBuzzForOneNumber(n) + "\n"
+      result = result+getFizzBuzzForN(n) + "\n"
     end
     return result; 
   end
